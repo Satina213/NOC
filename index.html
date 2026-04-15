@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature of Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+    <h1>The Beginning</h1>
+    <h2>0.1 Getting Started</h2>
+    <p>As you begin and rebegin learning p5.js remember to take breaks and enjoy yourself. Drink coffee and listen to
+        music. Kiss your boyfriend and touch his butt.</p>
+    <h2>0.2 &lt;HTML&gt;</h2>
+    <p></p>
+    <h3>Random Walkers</h3>
+    <p>First up we've got the tried and true random walker with one small upgrade. This little guy will walk randomly
+        left or right and up or down each frame of animation.</p>
+    <div id="sketch1"></div>
+    <p>This walker here uses Gaussian distribution to determine how much to move with a mean of 0 on each axis and a
+        standard deviation of 1. So basically it can move up 3 spaces but it's rare, it sometimes moves 2 spaces but not
+        really, and it most often moves 1 space.</p>
+    <div id="sketch2"></div>
+    <p>This one is my favorite so far utilizing Perlin Noise. So each frame the direction it moves *is* random but it's
+        going to be similiar to the direction it was already moving.</p>
+    <div id="sketch3"></div>
+    <p>This is just another demonstration of Perlin Noise</p>
+    <div id="circlesketch"></div>
+    <script src="noc1.js"></script>
+</body>
+
+
+</html>
