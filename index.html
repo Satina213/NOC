@@ -12,27 +12,51 @@
 <body>
     <h1>The Beginning</h1>
     <h2>0.1 Getting Started</h2>
-    <p>As you begin and rebegin learning p5.js remember to take breaks and enjoy yourself. Drink coffee and listen to
-        music. Kiss your boyfriend and touch his butt.</p>
+    <p>First we're using HTML, so at the top of our index.html we need the standard boilerplate like
+        &lt;!DOCTYPE html&gt;, along with the usual &lt;html&gt;,
+
+        &lt;head&gt;, and
+
+        &lt;body&gt; structure. This sets up the document so the browser knows how to interpret everything correctly.>
+    </p>
+    <p> We’re also using the p5.js library, so we include it with a &lt;script&gt; tag in the &lt;head&gt;:</p>
+    <p> &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;
+    </p>
+    <p>This loads all the p5 functions like createCanvas(), draw(), and background() so we can use them in our sketches.
+    </p>
     <h2>0.2 &lt;HTML&gt;</h2>
     <p></p>
     <h3>Random Walkers</h3>
-    <p>First up we've got the tried and true random walker with one small upgrade. This little guy will walk randomly
-        left or right and up or down each frame of animation.</p>
+    <p>First up is the classic random walker. Each frame (inside draw()), the walker updates its position by randomly
+        choosing to move left/right (x-axis) or up/down (y-axis). This is typically done by generating a random number
+        and mapping it to directional steps like +1 or -1.</p>
     <div id="sketch1"></div>
-    <p>This walker here uses Gaussian distribution to determine how much to move with a mean of 0 on each axis and a
-        standard deviation of 1. So basically it can move up 3 spaces but it's rare, it sometimes moves 2 spaces but not
-        really, and it most often moves 1 space.</p>
+    <p>This next walker uses a Gaussian (normal or Bell Curve) distribution instead of uniform randomness. Rather than
+        always stepping
+        exactly one pixel, we use something like randomGaussian() to determine the step size. With a mean of 0 and a
+        standard deviation of 2, most movements are small (around ±2), occasionally larger (±4), and rarely even bigger.
+        This creates more natural-looking motion compared to purely uniform steps.</p>
     <div id="sketch2"></div>
-    <p>This one is my favorite so far utilizing Perlin Noise. So each frame the direction it moves *is* random but it's
-        going to be similiar to the direction it was already moving.</p>
+    <p>The next version uses Perlin noise. Instead of generating completely independent random values each frame, we
+        sample from noise(), which produces smoothly changing values over time. That means the direction isn’t truly
+        random frame-to-frame—it’s correlated with the previous frame. The result is motion that feels more fluid and
+        continuous rather than jittery.</p>
     <div id="sketch3"></div>
-    <p>This is just another demonstration of Perlin Noise</p>
+    <p>This is another Perlin noise example, likely exploring how changing the input (like incrementing a time variable)
+        affects the output. Small changes to the input of noise() result in small changes in output, which is what gives
+        that smooth transition effect.</p>
     <div id="circlesketch"></div>
-    <p>Each pixel here is determined by 2d perlin noise! So each pixel is a similiar color to those around it but still
-        random!! It's so cool</p>
+    <p>This sketch uses 2D Perlin noise to determine the color of every pixel. By sampling noise(x, y) across
+        the canvas, each pixel gets a value that’s similar to its neighbors, creating that smooth, cloud-like texture.
+        It looks random, but it’s actually highly structured randomness—which is why it feels so natural.</p>
     <div id="noisybackground"></div>
+    <p>This uses 3D Perlin noise in order to accomplish animation. Each frame of animation is like a slice of swiss
+        cheese and the next frame is the next slice. So over time you'll see clouds come in and fade out similiar to the
+        holes in the cheese.</p>
+    <div id="smokybackground"></div>
     <script src="noc1.js"></script>
+    <br>
+    <br>
 </body>
 
 
