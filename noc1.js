@@ -202,7 +202,7 @@ new p5(noisybackground);
 
 const smokybackground = (p) => {
     p.setup = function () {
-        p.createCanvas(400, 400).parent("smokybackground");
+        p.createCanvas(300, 300).parent("smokybackground");
         p.pixelDensity(1);
         p.background(0);
         p.t = 0;
@@ -219,11 +219,11 @@ const smokybackground = (p) => {
                 p.pixels[index + 1] = bright;
                 p.pixels[index + 2] = bright;
                 p.pixels[index + 3] = 255;
-                yoff += 0.02;
+                yoff += 0.013;
             }
-            xoff += 0.02;
+            xoff += 0.013;
         }
-        p.t += 0.01;
+        p.t += 0.0045;
         p.updatePixels();
     }
 }
