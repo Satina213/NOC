@@ -58,8 +58,8 @@ class GaussianWalker {
         this.p.point(this.x, this.y);
     }
     step() {
-        let xstep = this.p.randomGaussian(0, 3);
-        let ystep = this.p.randomGaussian(0, 1);
+        let xstep = this.p.randomGaussian(0, 2);
+        let ystep = this.p.randomGaussian(0, 2);
         this.x += xstep;
         this.y += ystep;
     }
@@ -156,7 +156,6 @@ class NoiseCircle {
 
 const circlesketch = (p) => {
     p.setup = function () {
-        let windowsize = 200;
         p.createCanvas(window.screen.width, windowsize).parent("circlesketch");
         p.background(29, 235, 166);
         p.noiseCircle = new NoiseCircle(p);
@@ -170,7 +169,6 @@ const circlesketch = (p) => {
 }
 
 new p5(circlesketch);
-
 
 const noisybackground = (p) => {
     p.setup = function () {
@@ -201,3 +199,33 @@ const noisybackground = (p) => {
 }
 
 new p5(noisybackground);
+
+const smokybackground = (p) => {
+    p.setup = function () {
+        p.createCanvas(400, 400).parent("smokybackground");
+        p.pixelDensity(1);
+        p.background(0);
+        p.t = 0;
+    }
+    p.draw = function () {
+        p.loadPixels();
+        let xoff = 0.0;
+        for (let x = 0; x < p.width; x++) {
+            let yoff = 0.0;
+            for (let y = 0; y < p.height; y++) {
+                let index = (x + y * p.width) * 4;
+                let bright = p.map(p.noise(xoff, yoff, p.t), 0, 1, 0, 255);
+                p.pixels[index] = bright;
+                p.pixels[index + 1] = bright;
+                p.pixels[index + 2] = bright;
+                p.pixels[index + 3] = 255;
+                yoff += 0.02;
+            }
+            xoff += 0.02;
+        }
+        p.t += 0.01;
+        p.updatePixels();
+    }
+}
+
+new p5(smokybackground);
