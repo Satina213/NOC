@@ -170,3 +170,34 @@ const circlesketch = (p) => {
 }
 
 new p5(circlesketch);
+
+
+const noisybackground = (p) => {
+    p.setup = function () {
+        p.createCanvas(window.screen.width, windowsize * 4).parent("noisybackground");
+        p.background(0);
+        p.loadPixels();
+        let xoff = 0.0;
+        for (let x = 0; x < p.width; x++) {
+            let yoff = 0.0;
+            for (let y = 0; y < p.height; y++) {
+                let index = (x + y * p.width) * 4;
+                let red = p.map(p.noise(xoff, yoff), 0, 1, 0, 255);
+                let green = p.map(p.noise(xoff + 10000, yoff + 10000), 0, 1, 0, 255);
+                let blue = p.map(p.noise(xoff + 100000, yoff + 100000), 0, 1, 0, 255);
+                p.pixels[index] = red;
+                p.pixels[index + 1] = green;
+                p.pixels[index + 2] = blue;
+                p.pixels[index + 3] = 255;
+                yoff += 0.01;
+            }
+            xoff += 0.01;
+        }
+        p.updatePixels();
+    }
+    p.draw = function () {
+
+    }
+}
+
+new p5(noisybackground);
