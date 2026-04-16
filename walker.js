@@ -172,7 +172,7 @@ new p5(circlesketch);
 
 const noisybackground = (p) => {
     p.setup = function () {
-        p.createCanvas(window.screen.width, windowsize * 4).parent("noisybackground");
+        p.createCanvas(400, 400).parent("noisybackground");
         p.background(0);
         p.loadPixels();
         let xoff = 0.0;
