@@ -1,3 +1,13 @@
 body {
     background-color: rgb(36, 139, 88);
 }
+
+.toBeCopied {
+    background-color: lightgray;
+    display: inline-block;
+}
+
+.p5Reference {
+    background-color: violet;
+    display: inline-block;
+}

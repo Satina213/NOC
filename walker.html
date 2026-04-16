@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature of Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="walker.html">Random Walkers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vector.html">Vectors</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <h1>The Beginning</h1>
+    <h2>0.1 Getting Started</h2>
+    <p>First we're using HTML, so at the top of our index.html we need the standard boilerplate like
+        &lt;!DOCTYPE html&gt;, along with the usual &lt;html&gt;,
+
+        &lt;head&gt;, and
+
+        &lt;body&gt; structure. This sets up the document so the browser knows how to interpret everything correctly.>
+    </p>
+    <p> We’re also using the p5.js library, so we include it with a &lt;script&gt; tag in the &lt;head&gt;:</p>
+    <p> &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;
+    </p>
+    <p>This loads all the p5 functions like createCanvas(), draw(), and background() so we can use them in our sketches.
+    </p>
+    <h2>0.2 &lt;HTML&gt;</h2>
+    <p></p>
+    <h3>Random Walkers</h3>
+    <p>First up is the classic random walker. Each frame (inside draw()), the walker updates its position by randomly
+        choosing to move left/right (x-axis) or up/down (y-axis). This is typically done by generating a random number
+        and mapping it to directional steps like +1 or -1.</p>
+    <div id="sketch1"></div>
+    <p>This next walker uses a Gaussian (normal or Bell Curve) distribution instead of uniform randomness. Rather than
+        always stepping
+        exactly one pixel, we use something like randomGaussian() to determine the step size. With a mean of 0 and a
+        standard deviation of 2, most movements are small (around ±2), occasionally larger (±4), and rarely even bigger.
+        This creates more natural-looking motion compared to purely uniform steps.</p>
+    <div id="sketch2"></div>
+    <p>The next version uses Perlin noise. Instead of generating completely independent random values each frame, we
+        sample from noise(), which produces smoothly changing values over time. That means the direction isn’t truly
+        random frame-to-frame—it’s correlated with the previous frame. The result is motion that feels more fluid and
+        continuous rather than jittery.</p>
+    <div id="sketch3"></div>
+    <p>This is another Perlin noise example, likely exploring how changing the input (like incrementing a time variable)
+        affects the output. Small changes to the input of noise() result in small changes in output, which is what gives
+        that smooth transition effect.</p>
+    <div id="circlesketch"></div>
+    <p>This sketch uses 2D Perlin noise to determine the color of every pixel. By sampling noise(x, y) across
+        the canvas, each pixel gets a value that’s similar to its neighbors, creating that smooth, cloud-like texture.
+        It looks random, but it’s actually highly structured randomness—which is why it feels so natural.</p>
+    <div id="noisybackground"></div>
+    <p>This uses 3D Perlin noise in order to accomplish animation. Each frame of animation is like a slice of swiss
+        cheese and the next frame is the next slice. So over time you'll see clouds come in and fade out similiar to the
+        holes in the cheese.</p>
+    <div id="smokybackground"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="walker.js"></script>
+    <br>
+    <br>
+</body>
+
+
+</html>
