@@ -11,3 +11,13 @@ body {
     background-color: violet;
     display: inline-block;
 }
+
+.textExample {
+    display: flex;
+    gap: 1rem;
+    /* justify-content: flex-end; */
+}
+
+.quote {
+    font-style: italic;
+}
