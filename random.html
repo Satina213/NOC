@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature of Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nature of Code
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="learnjs.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="random.html">Randomness</a></li>
+                            <li><a class="dropdown-item" href="vector.html">Vectors</a></li>
+                            <li><a class="dropdown-item" href="force.html">Forces</a></li>
+                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learnhtml.html">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learncss.html">CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h3>What is Randomness</h3>
+    <p>
+        When we talk about something random we mean to say that whatever the result is it will be from some range of
+        possibilities.
+        <br>
+        The first way we can think about this is with an even distribution. A roll of the dice has an even distribution
+        because each of the faces has an equal chance of showing up. Or we can draw 1000 pixels on a canvas and give
+        each
+        one a random x and random y position so we can see the randomness.
+        <br>
+        <a href="https://p5js.org/reference/p5/random/" class="p5Reference">random()</a>
+    </p>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div id="example0"></div>
+            </div>
+            <div class="col">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250412145009731320/Uniform-Distribution-1.webp"
+                    alt="Picture showing an even distribution of dice rolls">
+            </div>
+        </div>
+    </div>
+    <p>We can also have what's known as a Gaussian Distribution. Think of this like people's height where any
+        person is
+        a random height but you have more people of average height
+        and fewer and fewer people exist that are heights further from the average.
+        <br>
+        <span class="quote">The standard deviation is calculated as the square root of the average of the
+            squares of
+            deviations around the mean. -Nature of Code, pg 15</span>
+        <br>
+        In other words we find the average value of the data, find the difference each value is from the
+        average, square
+        each difference, find the average squared difference, and take the square root of that.
+        <br>
+        In other other words the higher the standard deviation the wider the range of possibilities. A low
+        standard
+        deviation will have everything clumped around the mean.
+        <a href="https://p5js.org/reference/p5/randomGaussian/" class="p5Reference">randomGaussian()</a>
+    </p>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div id="example1"></div>
+                A random distribution of points with a high standard deviation.
+            </div>
+            <div class="col">
+                <div id="example2"></div>
+                A random distribution of points with a low standard deviation.
+            </div>
+        </div>
+    </div>
+    <div id="sketch1"></div>
+    <div id="sketch2"></div>
+    <div id="sketch3"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="random.js"></script>
+</body>
+
+
+</html>

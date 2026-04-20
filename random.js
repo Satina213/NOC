@@ -1,4 +1,4 @@
-const windowsize = 200;
+const windowsize = 400;
 const screencolor = [29, 235, 166];
 
 class RandomWalker {
@@ -27,6 +27,53 @@ class RandomWalker {
 }
 
 
+const example0 = (p) => {
+    p.setup = function () {
+        p.createCanvas(windowsize, windowsize).parent("example0");
+        p.background(screencolor);
+        p.stroke(0);
+        p.strokeWeight(2);
+        for (let i = 0; i < 1000; i++) {
+            p.point(p.random(windowsize), p.random(windowsize));
+        }
+    }
+    p.draw = function () {
+
+    }
+}
+new p5(example0);
+
+const example1 = (p) => {
+    p.setup = function () {
+        p.createCanvas(windowsize, windowsize).parent("example1");
+        p.background(screencolor);
+        p.stroke(0);
+        p.strokeWeight(2);
+        for (let i = 0; i < 1000; i++) {
+            p.point(p.randomGaussian(windowsize / 2, windowsize / 6), p.randomGaussian(windowsize / 2, windowsize / 6));
+        }
+    }
+    p.draw = function () {
+
+    }
+}
+new p5(example1);
+const example2 = (p) => {
+    p.setup = function () {
+        p.createCanvas(windowsize, windowsize).parent("example2");
+        p.background(screencolor);
+        p.stroke(0);
+        p.strokeWeight(2);
+        for (let i = 0; i < 1000; i++) {
+            p.point(p.randomGaussian(windowsize / 2, windowsize / 12), p.randomGaussian(windowsize / 2, windowsize / 12));
+        }
+    }
+    p.draw = function () {
+
+    }
+}
+new p5(example2);
+
 const sketch1 = (p) => {
     p.setup = function () {
         p.createCanvas(window.screen.width, windowsize).parent("sketch1");
@@ -41,10 +88,7 @@ const sketch1 = (p) => {
         p.background(screencolor[0], screencolor[1], screencolor[2], 3);
     }
 }
-
 new p5(sketch1);
-
-
 
 class GaussianWalker {
     constructor(p) {
@@ -85,10 +129,7 @@ const sketch2 = (p) => {
 
     }
 }
-
 new p5(sketch2);
-
-
 
 class NoiseWalker {
     constructor(p) {
@@ -115,7 +156,6 @@ class NoiseWalker {
         }
     }
 }
-
 const sketch3 = (p) => {
     p.setup = function () {
         let windowsize = 200;
@@ -131,11 +171,7 @@ const sketch3 = (p) => {
 
     }
 }
-
-
 new p5(sketch3);
-
-
 
 class NoiseCircle {
     constructor(p) {
@@ -153,7 +189,6 @@ class NoiseCircle {
         this.y = this.p.map(this.p.noise((this.p.frameCount + 10000) / 100), 0, 1, 0, this.p.height);
     }
 }
-
 const circlesketch = (p) => {
     p.setup = function () {
         p.createCanvas(window.screen.width, windowsize).parent("circlesketch");
@@ -167,7 +202,6 @@ const circlesketch = (p) => {
 
     }
 }
-
 new p5(circlesketch);
 
 const noisybackground = (p) => {
@@ -198,7 +232,6 @@ const noisybackground = (p) => {
 
     }
 }
-
 new p5(noisybackground);
 
 const smokybackground = (p) => {
@@ -228,5 +261,4 @@ const smokybackground = (p) => {
         p.updatePixels();
     }
 }
-
 new p5(smokybackground);
