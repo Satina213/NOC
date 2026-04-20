@@ -22,54 +22,62 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nature of Code
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="learnjs.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="walker.html">Randomness</a></li>
+                            <li><a class="dropdown-item" href="vector.html">Vectors</a></li>
+                            <li><a class="dropdown-item" href="force.html">Forces</a></li>
+                        </ul>
                     <li class="nav-item">
-                        <a class="nav-link" href="walker.html">Random Walkers</a>
+                        <a class="nav-link" href="learnhtml.html">HTML</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vector.html">Vectors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="force.html">Forces</a>
+                        <a class="nav-link" href="learncss.html">CSS</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
-    <h1>The Beginning</h1>
-    <h2>0.1 Getting Started</h2>
-    <p>First we're using HTML, so at the top of our index.html we need the standard boilerplate like
-        <span class="toBeCopied">&lt;!DOCTYPE html&gt;</span>, along with the usual <span
-            class="toBeCopied">&lt;html&gt;</span>,
-
-        <span class="toBeCopied">&lt;head&gt;</span>, and
-
-        <span class="toBeCopied">&lt;body&gt;</span> structure. This sets up the document so the browser knows
-        how to interpret everything correctly.>
+    <h1>Nature of Code</h1>
+    <h2>What I'm doing</h2>
+    <p>
+        Here I'm following along with Daniel Shiffman's 'Nature of Code' book and incorporating it into this website.
+        I hope that I will learn some web design as well as javascript with this project. More specifically I want to
+        learn
+        concepts that can be applied to future projects, specifically those to do with simulating reality or in other
+        words:
+        'Nature of Code'!
     </p>
-    <p> We’re also using the p5.js library, so we include it with a <span class="toBeCopied">&lt;script&gt;</span> tag
-        in the <span class="toBeCopied">&lt;head&gt;</span>:</p>
-    <p class="toBeCopied"> &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;
+    <h2>The layout of this website</h2>
+    <p>
+        As of right now I'm breaking this up into three large sections: HTML, CSS, Javascript (specifically p5.js).
+        The Javascript section of this website will be subdivided into chapters following the book and will be the most
+        extensive.
     </p>
-    <p>This loads all the p5 functions like <span class="p5Reference">createCanvas()</span>, <span
-            class="p5Reference">draw()</span>, and
-        <span class="p5Reference">background()</span> so we can use them in our sketches.
-    </p>
-    <h2>0.2 &lt;HTML&gt;</h2>
-    <a href="walker.html">
-        <h3>Randomness</h3>
+    <a href="learnjs.html">
+        <h4>Javascript</h3>
     </a>
-    <h6 class="quote">The generation of random numbers is too important to be left to chance -Robert R. Coveyou</h6>
-    <h3>Vectors</h3>
-    <h6 class="quote">I'm committing crimes with both direction and magnitude. -Vector, Despicable Me</h7>
-        <h3>Forces</h3>
-        <h6 class="quote">Don't underestimate the Force -Darth Vader</h6>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
+    <h6 class="quote">p5.js makes sketching with code as intuitive as sketching in a notebook. —p5js.org</h6>
+    <a href="learnhtml.html">
+        <h4>HTML</h4>
+    </a>
+    <h6 class="quote">I think there certainly was a milestone in the '90s with regards to the Internet achieving
+        critical mass. There were several magical factors that came together: the creation of HTML by Tim Berners-Lee,
+        the drop in the price of communications, and all the PCs out there that you could put this software into. —Bill
+        Gates</h6>
+    <a href="learncss.html">
+        <h4>CSS</h4>
+    </a>
+    <h6 class="quote">Take time to learn the closest thing that we have to a SUPERPOWER - Code
+        ―Sharen Eddings </h6>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
 
 </body>
 
