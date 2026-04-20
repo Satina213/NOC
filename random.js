@@ -27,9 +27,9 @@ class RandomWalker {
 }
 
 
-const example0 = (p) => {
+const randomDis = (p) => {
     p.setup = function () {
-        p.createCanvas(windowsize, windowsize).parent("example0");
+        p.createCanvas(windowsize, windowsize).parent("randomDis");
         p.background(screencolor);
         p.stroke(0);
         p.strokeWeight(2);
@@ -41,11 +41,11 @@ const example0 = (p) => {
 
     }
 }
-new p5(example0);
+new p5(randomDis);
 
-const example1 = (p) => {
+const highGaus = (p) => {
     p.setup = function () {
-        p.createCanvas(windowsize, windowsize).parent("example1");
+        p.createCanvas(windowsize, windowsize).parent("highGaus");
         p.background(screencolor);
         p.stroke(0);
         p.strokeWeight(2);
@@ -57,10 +57,10 @@ const example1 = (p) => {
 
     }
 }
-new p5(example1);
-const example2 = (p) => {
+new p5(highGaus);
+const lowGaus = (p) => {
     p.setup = function () {
-        p.createCanvas(windowsize, windowsize).parent("example2");
+        p.createCanvas(windowsize, windowsize).parent("lowGaus");
         p.background(screencolor);
         p.stroke(0);
         p.strokeWeight(2);
@@ -72,64 +72,7 @@ const example2 = (p) => {
 
     }
 }
-new p5(example2);
-
-const sketch1 = (p) => {
-    p.setup = function () {
-        p.createCanvas(window.screen.width, windowsize).parent("sketch1");
-        p.background(screencolor);
-        p.walker = new RandomWalker(p);
-    }
-    p.draw = function () {
-
-        p.walker.step();
-        p.walker.show();
-        p.walker.reset();
-        p.background(screencolor[0], screencolor[1], screencolor[2], 3);
-    }
-}
-new p5(sketch1);
-
-class GaussianWalker {
-    constructor(p) {
-        this.p = p;
-        this.x = p.width / 2;
-        this.y = p.height / 2;
-    }
-    show() {
-        this.p.stroke(0);
-        this.p.strokeWeight(2);
-        this.p.point(this.x, this.y);
-    }
-    step() {
-        let xstep = this.p.randomGaussian(0, 2);
-        let ystep = this.p.randomGaussian(0, 2);
-        this.x += xstep;
-        this.y += ystep;
-    }
-    reset() {
-        if (this.x < 0 || this.x > this.p.width || this.y < 0 || this.y > this.p.height) {
-            this.x = this.p.width / 2;
-            this.y = this.p.height / 2;
-            this.p.background(29, 235, 166);
-        }
-    }
-}
-const sketch2 = (p) => {
-    p.setup = function () {
-        p.createCanvas(window.screen.width, windowsize).parent("sketch2");
-        p.background(29, 235, 166);
-        p.walker = new GaussianWalker(p);
-    }
-    p.draw = function () {
-        p.walker.show();
-        p.walker.step();
-        p.walker.reset();
-        p.background(29, 235, 166, 3);
-
-    }
-}
-new p5(sketch2);
+new p5(lowGaus);
 
 class NoiseWalker {
     constructor(p) {
@@ -156,10 +99,9 @@ class NoiseWalker {
         }
     }
 }
-const sketch3 = (p) => {
+const perlinSketch = (p) => {
     p.setup = function () {
-        let windowsize = 200;
-        p.createCanvas(window.screen.width, windowsize).parent("sketch3");
+        p.createCanvas(windowsize, windowsize).parent("perlinSketch");
         p.background(29, 235, 166);
         p.walker = new NoiseWalker(p);
     }
@@ -171,7 +113,7 @@ const sketch3 = (p) => {
 
     }
 }
-new p5(sketch3);
+new p5(perlinSketch);
 
 class NoiseCircle {
     constructor(p) {
@@ -189,9 +131,9 @@ class NoiseCircle {
         this.y = this.p.map(this.p.noise((this.p.frameCount + 10000) / 100), 0, 1, 0, this.p.height);
     }
 }
-const circlesketch = (p) => {
+const circleSketch = (p) => {
     p.setup = function () {
-        p.createCanvas(window.screen.width, windowsize).parent("circlesketch");
+        p.createCanvas(windowsize, windowsize).parent("circleSketch");
         p.background(29, 235, 166);
         p.noiseCircle = new NoiseCircle(p);
     }
@@ -202,63 +144,5 @@ const circlesketch = (p) => {
 
     }
 }
-new p5(circlesketch);
+new p5(circleSketch);
 
-const noisybackground = (p) => {
-    p.setup = function () {
-        let size = Math.min(400, p.windowWidth - 20);
-        p.createCanvas(size, size).parent("noisybackground");
-        p.background(0);
-        p.loadPixels();
-        let xoff = 0.0;
-        for (let x = 0; x < p.width; x++) {
-            let yoff = 0.0;
-            for (let y = 0; y < p.height; y++) {
-                let index = (x + y * p.width) * 4;
-                let red = p.map(p.noise(xoff, yoff), 0, 1, 0, 255);
-                let green = p.map(p.noise(xoff + 10000, yoff + 10000), 0, 1, 0, 255);
-                let blue = p.map(p.noise(xoff + 100000, yoff + 100000), 0, 1, 0, 255);
-                p.pixels[index] = red;
-                p.pixels[index + 1] = green;
-                p.pixels[index + 2] = blue;
-                p.pixels[index + 3] = 255;
-                yoff += 0.01;
-            }
-            xoff += 0.01;
-        }
-        p.updatePixels();
-    }
-    p.draw = function () {
-
-    }
-}
-new p5(noisybackground);
-
-const smokybackground = (p) => {
-    p.setup = function () {
-        p.createCanvas(300, 300).parent("smokybackground");
-        p.pixelDensity(1);
-        p.background(0);
-        p.t = 0;
-    }
-    p.draw = function () {
-        p.loadPixels();
-        let xoff = 0.0;
-        for (let x = 0; x < p.width; x++) {
-            let yoff = 0.0;
-            for (let y = 0; y < p.height; y++) {
-                let index = (x + y * p.width) * 4;
-                let bright = p.map(p.noise(xoff, yoff, p.t), 0, 1, 0, 255);
-                p.pixels[index] = bright;
-                p.pixels[index + 1] = bright;
-                p.pixels[index + 2] = bright;
-                p.pixels[index + 3] = 255;
-                yoff += 0.013;
-            }
-            xoff += 0.013;
-        }
-        p.t += 0.0045;
-        p.updatePixels();
-    }
-}
-new p5(smokybackground);

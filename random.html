@@ -58,7 +58,7 @@
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
-                <div id="example0"></div>
+                <div id="randomDis"></div>
             </div>
             <div class="col">
                 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250412145009731320/Uniform-Distribution-1.webp"
@@ -87,20 +87,44 @@
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
-                <div id="example1"></div>
+                <div id="highGaus"></div>
                 A random distribution of points with a high standard deviation.
             </div>
             <div class="col">
-                <div id="example2"></div>
+                <div id="lowGaus"></div>
                 A random distribution of points with a low standard deviation.
+            </div>
+            <div class="col">
+                <img src="https://www.scribbr.de/wp-content/uploads/2023/01/Standard-normal-distribution.webp"
+                    alt="picture showing gaussian distribution" width="600">
             </div>
         </div>
     </div>
-    <div id="sketch1"></div>
-    <div id="sketch2"></div>
-    <div id="sketch3"></div>
+    <p>
+        So we've covered an even distribution with random() and a Gaussian distribution with randomGaussian() and for
+        the final entry into randomness we have Perlin <a href="https://p5js.org/reference/p5/noise/"
+            class="p5Reference">noise().</a>
+        <br>
+        Given any input noise will return a random value between 0 and 1 but through complicated mathematics tiny
+        changes to the input will result in random but tiny changes to the output.
+        so noise(0) might return 0.56 and noise(0.01) would return 0.57 and so on. You'll never know what's coming next
+        but it's always going to be close to whatever the previous output was.
 
-
+    </p>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div id="perlinSketch"></div>
+                A random mover traveling in a random but organic fashion.
+            </div>
+            <div class="col">
+                <div id="circleSketch"></div>
+                A circle drawn to the screen whose position is determined by Perlin noise.
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
