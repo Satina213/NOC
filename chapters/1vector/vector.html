@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature of Code</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nature of Code
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/learn/learnjs.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="/chapters/0random/random.html">Randomness</a></li>
+                            <li><a class="dropdown-item" href="/chapters/1vector/vector.html">Vectors</a></li>
+                            <li><a class="dropdown-item" href="/chapters/2force/force.html">Forces</a></li>
+                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/learn/learnhtml.html">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/learn/learncss.html">CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="center">
+        <p> What is a vector? A vector has both magnitude and direction and is commonly denoted by an arrow.
+            The size of its arrow is its magnitude and its heading is its direction.
+        </p>
+        <p>Here we're using vectors to draw a line from the origin (top left) to the mouse.<br>
+            We can draw a vector from the middle of the screen to the mouse by taking the mouse<br>
+            vector and subtracting the vector to the origin of the screen.<br><br><br>
+            I'm using colors to demonstrate the addition and subtraction going on.<br>
+            The Blue and Yellow vectors add together to make the Green vector.<br>
+            The Blue vector is the Green minus the Yellow and the Yellow is the Green minus the blue.
+        </p>
+        <div id="vecDemo"></div>
+        <p>
+            You can think of adding vectors like taking the tail of the second and sticking it to the head of the first.
+            Wherever you end up is the result of addition.
+        </p>
+        <p>
+            For subtraction (vector A minus vector B) we flip vector B 180 degrees and then add A to the reversed B.
+        </p>
+        <div id="sketch1"></div>
+        <p>
+            So how are we using vectors to make life any easier? With vectors we keep track of one entity unlike in 2D
+            when
+            we need an x and y, or in 3D when we need a z as well.
+            Let's take a look at some of the code for the following "sketch".
+        </p>
+        <p class="textExample">
+        <pre class="text-start">
+    function setup() {
+        createCanvas(640, 240);
+        background(100);
+        acceleration = createVector(0, 0);
+        velocity = createVector(0, 0);
+        position = createVector(width / 2, height / 2);
+        mouse = createVector(mouseX, mouseY);
+    }
+    function draw() {
+        background(100);
+        circle(position.x, position.y, diameter);
+        mouse.x = mouseX;
+        mouse.y = mouseY;
+
+        acceleration.set(mouse.sub(position));
+        acceleration.setMag(1);
+        acceleration.div(mouse.sub(position));
+        velocity.add(acceleration);
+        velocity.limit(10);
+        position.add(velocity);
+        if (position.x > width - diameter / 2) {
+            velocity.x *= -1;
+            position.x = width - diameter / 2;
+        } else if (position.x < 0 + diameter / 2) {
+            velocity.x *= -1;
+            position.x = diameter / 2;
+        } else if (position.y > height - diameter / 2) {
+            velocity.y *= -1;
+            position.y = height - diameter / 2;
+        } else if (position.y < 0 + diameter / 2) {
+            velocity.y *= -1;
+            position.y = diameter / 2;
+        }
+
+
+    }
+    </pre>
+        </p>
+        <div id="sketch2"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="vector.js"></script>
+</body>

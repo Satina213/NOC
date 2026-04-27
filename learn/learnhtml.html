@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nature of Code
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/learn/learnjs.html">Overview</a></li>
+                            <li><a class="dropdown-item" href="/chapters/0random/random.html">Randomness</a></li>
+                            <li><a class="dropdown-item" href="/chapters/1vector/vector.html">Vectors</a></li>
+                            <li><a class="dropdown-item" href="/chapters/2force/force.html">Forces</a></li>
+                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/learn/learnhtml.html">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/learn/learncss.html">CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <h3 class="text-center">&lt;HTML&gt;</h3>
+        HTML stands for Hyper Text Markup Language and it's used to organize the structure of webpages. It's a
+        hierarchical structure
+        whereby each element will belong to some parent. Look at the example on the right. The head and body are
+        both the children of HTML. Within the head and body there are more elements.
+        <br>
+        The head of the html document will contain information about the page but is not the content of the
+        page. Included here is the charset declaring which alphabet is being used,
+        the viewport is modified so on mobile images will scale well,
+        the title of the page as seen at the tab on the top of the screen,
+        and a link to the style sheet.
+        <br>
+        <br>
+        <pre class="text-start"><div class="textExample">
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt; Put your title here &lt;/title&gt;
+        &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt; content goes here &lt;/p&gt;
+    &lt;/body&gt;
+        </div></pre>
+        So what sorts of tags can we use in our html body to change the appearance or layout of information?
+        Let's start big: with headers.
+        <pre class="text-start"><code class="textExample">
+        &lt;body&gt;
+            &lt;h1&gt; H1 &lt;/h1&gt;
+            &lt;h2&gt; H1 &lt;/h1&gt;
+            &lt;h3&gt; H1 &lt;/h1&gt;
+            &lt;h4&gt; H1 &lt;/h1&gt;
+            &lt;h5&gt; H1 &lt;/h1&gt;
+            &lt;h6&gt; H1 &lt;/h1&gt;
+        &lt;/body&gt;
+    </code></pre>
+        <h1>H1</h1>
+        <h2>H2</h2>
+        <h3>H3</h3>
+        <h4>H4</h4>
+        <h5>H5</h5>
+        <h6>H6</h6>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
